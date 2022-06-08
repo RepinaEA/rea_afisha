@@ -23,21 +23,26 @@ public class FilmManager {
     }
 
     public FilmItem[] findAll() {
-        FilmItem[] film = new FilmItem[filmCount];
-        System.arraycopy(items, 0, film, 0, filmCount);
-        return film;
+        if (items.length > filmCount) {
+            FilmItem[] film = new FilmItem[filmCount];
+            System.arraycopy(items, 0, film, 0, filmCount);
+            items = film;
+        }
+        return items;
     }
 
     public FilmItem[] findLast() {
-
         FilmItem[] result = new FilmItem[items.length];
         for (int i = 0; i < result.length; i++) {
             int index = items.length - i - 1;
             result[i] = items[index];
         }
-        FilmItem[] film = new FilmItem[filmCount];
-        System.arraycopy(result, 0, film, 0, filmCount);
-        return film;
+        if (result.length > filmCount) {
+            FilmItem[] film = new FilmItem[filmCount];
+            System.arraycopy(result, 0, film, 0, filmCount);
+            result = film;
+        }
+        return result;
     }
 
 }

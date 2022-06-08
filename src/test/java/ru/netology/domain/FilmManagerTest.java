@@ -40,6 +40,26 @@ public class FilmManagerTest {
 
     @Test
     public void FindAllFilmCount() {
+        FilmManager add = new FilmManager(11);
+        add.save(first);
+        add.save(second);
+        add.save(third);
+        add.save(fourth);
+        add.save(fifth);
+        add.save(sixth);
+        add.save(seventh);
+        add.save(eighth);
+        add.save(ninth);
+        add.save(tenth);
+        add.save(eleventh);
+
+        FilmItem[] actual = add.findAll();
+        FilmItem[] expected = {first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void FindAllFilmMoreCount() {
         FilmManager add = new FilmManager(3);
         add.save(first);
         add.save(second);
@@ -55,6 +75,26 @@ public class FilmManagerTest {
 
         FilmItem[] actual = add.findAll();
         FilmItem[] expected = {first, second, third};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void FindAllFilmLessCount() {
+        FilmManager add = new FilmManager(13);
+        add.save(first);
+        add.save(second);
+        add.save(third);
+        add.save(fourth);
+        add.save(fifth);
+        add.save(sixth);
+        add.save(seventh);
+        add.save(eighth);
+        add.save(ninth);
+        add.save(tenth);
+        add.save(eleventh);
+
+        FilmItem[] actual = add.findAll();
+        FilmItem[] expected = {first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth, eleventh};
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -82,6 +122,26 @@ public class FilmManagerTest {
 
     @Test
     public void FindLastFilmCount() {
+        FilmManager add = new FilmManager(11);
+        add.save(first);
+        add.save(second);
+        add.save(third);
+        add.save(fourth);
+        add.save(fifth);
+        add.save(sixth);
+        add.save(seventh);
+        add.save(eighth);
+        add.save(ninth);
+        add.save(tenth);
+        add.save(eleventh);
+
+        FilmItem[] actual = add.findLast();
+        FilmItem[] expected = {eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void FindLastFilmeMoreCount() {
         FilmManager add = new FilmManager(5);
         add.save(first);
         add.save(second);
@@ -100,5 +160,24 @@ public class FilmManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+    @Test
+    public void FindLastFilmLessCount() {
+        FilmManager add = new FilmManager(15);
+        add.save(first);
+        add.save(second);
+        add.save(third);
+        add.save(fourth);
+        add.save(fifth);
+        add.save(sixth);
+        add.save(seventh);
+        add.save(eighth);
+        add.save(ninth);
+        add.save(tenth);
+        add.save(eleventh);
 
+        FilmItem[] actual = add.findLast();
+        FilmItem[] expected = {eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
